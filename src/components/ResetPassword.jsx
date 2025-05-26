@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Form, Alert, Container, Card } from 'react-bootstrap';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
@@ -40,13 +41,13 @@ const ResetPassword = () => {
       const userType = localStorage.getItem('userType');
 console.log('Token:', token, 'UserType:', userType);
       // First validate the token
-      await axios.post('/api/auth/validate-token', {
+      await axios.post(`${API_URL}/api/auth/validate-token`, {
         token,
         userType
       });
 
       // Then update password
-      const response = await axios.post('/api/auth/update-password', {
+      const response = await axios.post(`${API_URL}/api/auth/update-password`, {
         token,
         newPassword,
         userType
@@ -67,7 +68,7 @@ console.log('Token:', token, 'UserType:', userType);
 
   return (
     <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-      <Card style={{ width: '100%', maxWidth: '500px', padding: '25px' }}>
+      <Card style={{ width: '100%', maxWidth: '500px', padding: '25px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
         <Card.Body>
           <h2 className="text-center mb-4">Reset Password</h2>
           {error && <Alert variant="danger">{error}</Alert>}

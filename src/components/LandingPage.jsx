@@ -441,7 +441,7 @@ const currentServices = serviceCards.slice(currentSlide, currentSlide + 3);
              fontFamily: 'cursive'
           }}
            >
-           WedBricks
+           WedBrick
           </span> 
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0">
@@ -751,7 +751,7 @@ const currentServices = serviceCards.slice(currentSlide, currentSlide + 3);
         <Container>
           <Row>
             <Col md={6} className="text-center text-md-start">
-              <p>&copy; 2023 WedBricks. All rights reserved.</p>
+              <p>&copy; 2025 WedBrick. All rights reserved.</p>
             </Col>
             <Col md={6} className="text-center text-md-end">
               <div className="social-icons">

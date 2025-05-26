@@ -3,6 +3,7 @@ import { Container, Card, Form, Button, Alert, Row, Col } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ const ForgotPassword = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('/api/auth/request-reset', { 
+      const response = await axios.post(`${API_URL}/api/auth/request-reset`, { 
         email, 
         userType 
       });
